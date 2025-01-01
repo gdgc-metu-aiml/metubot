@@ -8,34 +8,11 @@ class ChatEngine():
         from langchain.prompts import PromptTemplate
         from langchain_groq import ChatGroq
         import groq_keys as gk
+        from retrieval import get_retriever
 
         self.current_api_key = gk.groq_api_key
         
-        self.csv_file_path = 'example_data.csv'
-        self.loader = CSVLoader(file_path=self.csv_file_path)
-
-        self.data = self.loader.load()
-
-        self.text_splitter = RecursiveCharacterTextSplitter(
-            chunk_size=1000,
-            chunk_overlap=150
-        )
-        
-        self.docs = self.text_splitter.split_documents(self.data)
-
-        self.model_path = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
-        self.model_kwargs = {'device': 'cpu'}
-        self.encode_kwargs = {'normalize_embeddings': False}
-
-        self.embeddings = HuggingFaceEmbeddings(
-            model_name = self.model_path,      
-            model_kwargs = self.model_kwargs,  
-            encode_kwargs = self.encode_kwargs 
-        )
-
-        self.vector_db = FAISS.from_documents(self.docs, self.embeddings)
-        self.retriever = self.vector_db.as_retriever()
-
+        self.retriever = get_retriever()
         self.llm = ChatGroq(
             model="llama-3.3-70b-versatile",
             temperature=0.1,
@@ -63,7 +40,8 @@ class ChatEngine():
             llm=self.llm,
             chain_type="stuff",
             retriever=self.retriever,
-            chain_type_kwargs={"prompt": self.prompt})
+            chain_type_kwargs={"prompt": self.prompt},
+            return_source_documents=False)
 
     def chat(self, user_input):
         """
@@ -74,7 +52,4 @@ class ChatEngine():
         """
                 
         result = self.qa.invoke(user_input)
-        return result['result']
-
-
-        
+        return result["result"]
