@@ -1,6 +1,7 @@
 class ChatEngine():
     def __init__(self):
         from langchain.prompts import PromptTemplate
+        import qa_chain_builder as cb
         import groq_keys as gk
         from retrieval import get_retriever
         
@@ -24,7 +25,7 @@ class ChatEngine():
         
         self.qa_chains = []
         for key in gk.groq_api_keys:
-            self.qa_chains.append(gk.qa_chain(self.prompt, key, self.retriever))
+            self.qa_chains.append(cb.qa_chain(self.prompt, key, self.retriever))
 
         self.keys = gk.groq_api_keys
         self.num_keys = len(self.keys)
