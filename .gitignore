@@ -4,3 +4,9 @@ v1.0/groq_keys.py
 v1.1/faiss_index/
 v1.1/bm25_retriever.pkl
 v1.1/groq_keys.py
+v1.2/faiss_index/
+v1.2/bm25_retriever.pkl
+v1.2/openai_keys.py
+v1.3/faiss_index/
+v1.3/bm25_retriever.pkl
+v1.3/openai_keys.py
