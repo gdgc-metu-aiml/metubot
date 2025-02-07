@@ -11,3 +11,7 @@ v1.3/faiss_index/
 v1.3/bm25_retriever.pkl
 v1.3/openai_keys.py
 v1.3/emrecan/
+v1.4/faiss_index/
+v1.4/bm25_retriever.pkl
+v1.4/openai_keys.py
+v1.4/emrecan/
