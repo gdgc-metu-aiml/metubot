@@ -13,7 +13,9 @@ def main():
             break
         
         start = datetime.datetime.now()
-        response = chat_engine.chat(user_input)["result"]
+
+        response,docs = chat_engine.chat(user_input)
+        
         stop = datetime.datetime.now()
         print(f"Chatbot: {response}")
         print(f"Time: {stop-start} sec.")
