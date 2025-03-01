@@ -27,7 +27,7 @@ pip install -r requirements.txt
 
 ## 📂 Required Files & Keys
 
-Users must generate their own database files. Place the required database and API key files in the `v1.6` directory as follows:
+Users must generate their own database files by running db_creator/db_creator.py. The files to be added to the database should be in .csv or .pdf format and must be placed in the db_creator/data/ directory. After creation, the generated faiss_index/ and bm25_retriever.pkl should be moved to the specified paths. Place the required database and API key files in the `v1.6` directory as follows:
 
 ```
 v1.6/faiss_index/
@@ -37,7 +37,7 @@ v1.6/openai_keys.py
 
 - `faiss_index/`: Directory containing the Faiss index files.
 - `bm25_retriever.pkl`: Precomputed BM25 retriever model.
-- `openai_keys.py`: File containing API keys for OpenAI integration.
+- `openai_keys.py`: File containing API keys for OpenAI integration. OpenAI API keys must be added to the list inside this file.
 
 ## 💬 Usage
 
