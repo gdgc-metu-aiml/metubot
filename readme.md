@@ -74,6 +74,8 @@ Metubot is developed by members of the **Google Developer Groups on Campus METU 
 
 - **Mobile/Web App Development Team:** Eray Kaya
 
+- **Design Team:** Atahan Önaçan
+
 Contributions are welcome! Feel free to open an issue or submit a pull request.
 
 ---
