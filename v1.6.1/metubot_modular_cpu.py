@@ -23,15 +23,19 @@ class ChatEngine():
             self.current_qa_index += 1
             self.current_api_key = self.keys[self.current_qa_index]
 
-    def chat(self, user_input):
+    def chat(self, user_input, user_name):
         """
-        This function takes user input as string and returns:
+        This function takes user input and user name as string and returns:
         result, retrieved_docs
                 
         Args: 
         user_input (str): User input as string.
+        user_name (str): User name as string.
         """
         
-        result,retrieved_docs = self.qa_chains[self.current_qa_index].chat_with_qa(user_input.lower())
+        name_definer = f"(İsim: {user_name}) "
+        processed_input = name_definer + user_input.lower()
+        
+        result,retrieved_docs = self.qa_chains[self.current_qa_index].chat_with_qa(processed_input)
         self.update_api_key()
         return result,retrieved_docs
