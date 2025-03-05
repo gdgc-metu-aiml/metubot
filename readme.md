@@ -27,12 +27,12 @@ pip install -r requirements.txt
 
 ## 📂 Required Files & Keys
 
-Users must generate their own database files by running db_creator/db_creator.py. The files to be added to the database should be in .csv or .pdf format and must be placed in the db_creator/data/ directory. After creation, the generated faiss_index/ and bm25_retriever.pkl should be moved to the specified paths. Place the required database and API key files in the `v1.6` directory as follows:
+Users must generate their own database files by running db_creator/db_creator.py. The files to be added to the database should be in .csv or .pdf format and must be placed in the db_creator/data/ directory. After creation, the generated faiss_index/ and bm25_retriever.pkl should be moved to the specified paths. Place the required database and API key files in the `v1.6.1` directory as follows:
 
 ```
-v1.6/faiss_index/
-v1.6/bm25_retriever.pkl
-v1.6/openai_keys.py
+v1.6.1/faiss_index/
+v1.6.1/bm25_retriever.pkl
+v1.6.1/openai_keys.py
 ```
 
 - `faiss_index/`: Directory containing the Faiss index files.
@@ -41,19 +41,19 @@ v1.6/openai_keys.py
 
 ## 💬 Usage
 
-To use Metubot in different applications, import `v1.6/metubot_modular_cpu.py` and create an instance of the `ChatEngine()` class. You can interact with the chatbot using:
+To use Metubot in different applications, import `v1.6.1/metubot_modular_cpu.py` and create an instance of the `ChatEngine()` class. You can interact with the chatbot using:
 
 ```python
 from metubot_modular_cpu import ChatEngine
 chatbot = ChatEngine()
-response, docs = chatbot.chat("Your prompt here")
+response, docs = chatbot.chat("Your prompt here", "Your name here")
 print(response)
 ```
 
 For terminal-based interaction:
 
 ```bash
-python3 ./v1.6/chat.py
+python3 ./v1.6.1/chat.py
 ```
 
 ## 📜 License
