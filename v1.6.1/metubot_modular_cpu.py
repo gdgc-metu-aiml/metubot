@@ -32,8 +32,10 @@ class ChatEngine():
         user_input (str): User input as string.
         user_name (str): User name as string.
         """
-        
-        name_definer = f"(İsim: {user_name}) "
+        if user_name == "Misafir":
+            name_definer = "(İsim belirtilmedi) "
+        else:
+            name_definer = f"(İsim: {user_name}) "
         processed_input = name_definer + user_input.lower()
         
         result,retrieved_docs = self.qa_chains[self.current_qa_index].chat_with_qa(processed_input)

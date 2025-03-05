@@ -14,7 +14,7 @@ def main():
         
         start = datetime.datetime.now()
 
-        response,docs = chat_engine.chat(user_input)
+        response,docs = chat_engine.chat(user_input, "Misafir")
         
         stop = datetime.datetime.now()
         print(f"Chatbot: {response}")
